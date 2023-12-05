@@ -1,7 +1,7 @@
 {
     "version":            "1",
     "project_name":       "led_strip",
-    "project_version":    "0a44e49",
+    "project_version":    "cdf7091-dirty",
     "project_path":       "C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/led_strip",
     "idf_path":           "C:/Users/Desktop/esp/esp-idf",
     "build_dir":          "C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/led_strip/build",
