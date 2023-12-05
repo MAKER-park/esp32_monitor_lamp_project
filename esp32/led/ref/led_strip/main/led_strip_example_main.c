@@ -148,5 +148,39 @@ void app_main(void)
         ESP_ERROR_CHECK(rmt_transmit(led_chan, led_encoder, led_strip_pixels, sizeof(led_strip_pixels), &tx_config));
         ESP_ERROR_CHECK(rmt_tx_wait_all_done(led_chan, portMAX_DELAY));
         vTaskDelay(pdMS_TO_TICKS(2000));
+        for (int j = 0; j < EXAMPLE_LED_NUMBERS * 3; j = j + 3)
+        {
+            ESP_LOGI(TAG, "EXAMPLE_LED_NMBERS : %d", j / 3);
+
+            // Build RGB pixels
+            hue = j * 360 / EXAMPLE_LED_NUMBERS + start_rgb;
+            led_strip_hsv2rgb(hue, 100, 100, &red, &green, &blue);
+            led_strip_pixels[j + 0] = 10;  // green
+            led_strip_pixels[j + 1] = 0; // red
+            led_strip_pixels[j + 2] = 0;  // blue
+            // // Flush RGB values to LEDs
+            ESP_ERROR_CHECK(rmt_transmit(led_chan, led_encoder, led_strip_pixels, sizeof(led_strip_pixels), &tx_config));
+            ESP_ERROR_CHECK(rmt_tx_wait_all_done(led_chan, portMAX_DELAY));
+            vTaskDelay(pdMS_TO_TICKS(500));
+        }
+        memset(led_strip_pixels, 0, sizeof(led_strip_pixels));
+        ESP_ERROR_CHECK(rmt_transmit(led_chan, led_encoder, led_strip_pixels, sizeof(led_strip_pixels), &tx_config));
+        ESP_ERROR_CHECK(rmt_tx_wait_all_done(led_chan, portMAX_DELAY));
+        vTaskDelay(pdMS_TO_TICKS(2000));
+        for (int j = 0; j < EXAMPLE_LED_NUMBERS * 3; j = j + 3)
+        {
+            ESP_LOGI(TAG, "EXAMPLE_LED_NMBERS : %d", j / 3);
+
+            // Build RGB pixels
+            hue = j * 360 / EXAMPLE_LED_NUMBERS + start_rgb;
+            led_strip_hsv2rgb(hue, 100, 100, &red, &green, &blue);
+            led_strip_pixels[j + 0] = 0;  // green
+            led_strip_pixels[j + 1] = 0; // red
+            led_strip_pixels[j + 2] = 10;  // blue
+            // // Flush RGB values to LEDs
+            ESP_ERROR_CHECK(rmt_transmit(led_chan, led_encoder, led_strip_pixels, sizeof(led_strip_pixels), &tx_config));
+            ESP_ERROR_CHECK(rmt_tx_wait_all_done(led_chan, portMAX_DELAY));
+            vTaskDelay(pdMS_TO_TICKS(500));
+        }
     }
 }
