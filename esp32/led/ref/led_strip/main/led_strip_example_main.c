@@ -19,6 +19,11 @@
 static const char *TAG = "example";
 
 static uint8_t led_strip_pixels[EXAMPLE_LED_NUMBERS * 3];
+uint32_t red = 0;
+uint32_t green = 0;
+uint32_t blue = 0;
+uint16_t hue = 0;
+uint16_t start_rgb = 0;
 
 /**
  * @brief Simple helper function, converting HSV color space to RGB color space
@@ -75,12 +80,7 @@ void led_strip_hsv2rgb(uint32_t h, uint32_t s, uint32_t v, uint32_t *r, uint32_t
 
 void app_main(void)
 {
-    uint32_t red = 0;
-    uint32_t green = 0;
-    uint32_t blue = 0;
-    uint16_t hue = 0;
-    uint16_t start_rgb = 0;
-
+    //init led
     ESP_LOGI(TAG, "Create RMT TX channel");
     rmt_channel_handle_t led_chan = NULL;
     rmt_tx_channel_config_t tx_chan_config = {
@@ -108,26 +108,6 @@ void app_main(void)
     };
     while (1)
     {
-        // for (int i = 0; i < 3; i++) {
-        //     for (int j = i; j < EXAMPLE_LED_NUMBERS; j += 3) {
-        //         // Build RGB pixels
-        //         hue = j * 360 / EXAMPLE_LED_NUMBERS + start_rgb;
-        //         led_strip_hsv2rgb(hue, 100, 100, &red, &green, &blue);
-        //         led_strip_pixels[j * 3 + 0] = green;
-        //         led_strip_pixels[j * 3 + 1] = blue;
-        //         led_strip_pixels[j * 3 + 2] = red;
-        //     }
-        //     // Flush RGB values to LEDs
-        //     ESP_ERROR_CHECK(rmt_transmit(led_chan, led_encoder, led_strip_pixels, sizeof(led_strip_pixels), &tx_config));
-        //     ESP_ERROR_CHECK(rmt_tx_wait_all_done(led_chan, portMAX_DELAY));
-        //     vTaskDelay(pdMS_TO_TICKS(EXAMPLE_CHASE_SPEED_MS));
-        //     memset(led_strip_pixels, 0, sizeof(led_strip_pixels));
-        //     ESP_ERROR_CHECK(rmt_transmit(led_chan, led_encoder, led_strip_pixels, sizeof(led_strip_pixels), &tx_config));
-        //     ESP_ERROR_CHECK(rmt_tx_wait_all_done(led_chan, portMAX_DELAY));
-        //     vTaskDelay(pdMS_TO_TICKS(EXAMPLE_CHASE_SPEED_MS));
-        // }
-        // start_rgb += 60;
-        // simple mode test
         for (int j = 0; j < EXAMPLE_LED_NUMBERS * 3; j = j + 3)
         {
             ESP_LOGI(TAG, "EXAMPLE_LED_NMBERS : %d", j / 3);
@@ -141,13 +121,15 @@ void app_main(void)
             // // Flush RGB values to LEDs
             ESP_ERROR_CHECK(rmt_transmit(led_chan, led_encoder, led_strip_pixels, sizeof(led_strip_pixels), &tx_config));
             ESP_ERROR_CHECK(rmt_tx_wait_all_done(led_chan, portMAX_DELAY));
-            vTaskDelay(pdMS_TO_TICKS(500));
+            vTaskDelay(pdMS_TO_TICKS(EXAMPLE_CHASE_SPEED_MS));
         }
+        vTaskDelay(pdMS_TO_TICKS(2000));
         // clear led
         memset(led_strip_pixels, 0, sizeof(led_strip_pixels));
         ESP_ERROR_CHECK(rmt_transmit(led_chan, led_encoder, led_strip_pixels, sizeof(led_strip_pixels), &tx_config));
         ESP_ERROR_CHECK(rmt_tx_wait_all_done(led_chan, portMAX_DELAY));
         vTaskDelay(pdMS_TO_TICKS(2000));
+
         for (int j = 0; j < EXAMPLE_LED_NUMBERS * 3; j = j + 3)
         {
             ESP_LOGI(TAG, "EXAMPLE_LED_NMBERS : %d", j / 3);
@@ -155,18 +137,20 @@ void app_main(void)
             // Build RGB pixels
             hue = j * 360 / EXAMPLE_LED_NUMBERS + start_rgb;
             led_strip_hsv2rgb(hue, 100, 100, &red, &green, &blue);
-            led_strip_pixels[j + 0] = 10;  // green
-            led_strip_pixels[j + 1] = 0; // red
+            led_strip_pixels[j + 0] = 10; // green
+            led_strip_pixels[j + 1] = 0;  // red
             led_strip_pixels[j + 2] = 0;  // blue
             // // Flush RGB values to LEDs
             ESP_ERROR_CHECK(rmt_transmit(led_chan, led_encoder, led_strip_pixels, sizeof(led_strip_pixels), &tx_config));
             ESP_ERROR_CHECK(rmt_tx_wait_all_done(led_chan, portMAX_DELAY));
-            vTaskDelay(pdMS_TO_TICKS(500));
+            vTaskDelay(pdMS_TO_TICKS(EXAMPLE_CHASE_SPEED_MS));
         }
+        vTaskDelay(pdMS_TO_TICKS(2000));
         memset(led_strip_pixels, 0, sizeof(led_strip_pixels));
         ESP_ERROR_CHECK(rmt_transmit(led_chan, led_encoder, led_strip_pixels, sizeof(led_strip_pixels), &tx_config));
         ESP_ERROR_CHECK(rmt_tx_wait_all_done(led_chan, portMAX_DELAY));
         vTaskDelay(pdMS_TO_TICKS(2000));
+
         for (int j = 0; j < EXAMPLE_LED_NUMBERS * 3; j = j + 3)
         {
             ESP_LOGI(TAG, "EXAMPLE_LED_NMBERS : %d", j / 3);
@@ -175,12 +159,17 @@ void app_main(void)
             hue = j * 360 / EXAMPLE_LED_NUMBERS + start_rgb;
             led_strip_hsv2rgb(hue, 100, 100, &red, &green, &blue);
             led_strip_pixels[j + 0] = 0;  // green
-            led_strip_pixels[j + 1] = 0; // red
-            led_strip_pixels[j + 2] = 10;  // blue
+            led_strip_pixels[j + 1] = 0;  // red
+            led_strip_pixels[j + 2] = 10; // blue
             // // Flush RGB values to LEDs
             ESP_ERROR_CHECK(rmt_transmit(led_chan, led_encoder, led_strip_pixels, sizeof(led_strip_pixels), &tx_config));
             ESP_ERROR_CHECK(rmt_tx_wait_all_done(led_chan, portMAX_DELAY));
-            vTaskDelay(pdMS_TO_TICKS(500));
+            vTaskDelay(pdMS_TO_TICKS(EXAMPLE_CHASE_SPEED_MS));
         }
+        vTaskDelay(pdMS_TO_TICKS(2000));
+        memset(led_strip_pixels, 0, sizeof(led_strip_pixels));
+        ESP_ERROR_CHECK(rmt_transmit(led_chan, led_encoder, led_strip_pixels, sizeof(led_strip_pixels), &tx_config));
+        ESP_ERROR_CHECK(rmt_tx_wait_all_done(led_chan, portMAX_DELAY));
+        vTaskDelay(pdMS_TO_TICKS(2000));
     }
 }
