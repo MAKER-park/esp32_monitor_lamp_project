@@ -1,4 +1,4 @@
-C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_server/build/esp-idf/riscv/libriscv.a
+C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_server/build/esp-idf/xtensa/libxtensa.a
 C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_server/build/esp-idf/esp_ringbuf/libesp_ringbuf.a
 C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_server/build/esp-idf/efuse/libefuse.a
 C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_server/build/esp-idf/driver/libdriver.a
@@ -57,6 +57,10 @@ C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/b
 C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_server/build/esp-idf/fatfs/libfatfs.a
 C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_server/build/esp-idf/json/libjson.a
 C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_server/build/esp-idf/mqtt/libmqtt.a
+C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_server/build/esp-idf/perfmon/libperfmon.a
 C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_server/build/esp-idf/spiffs/libspiffs.a
+C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_server/build/esp-idf/touch_element/libtouch_element.a
+C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_server/build/esp-idf/ulp/libulp.a
+C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_server/build/esp-idf/usb/libusb.a
 C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_server/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
 C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_server/build/esp-idf/main/libmain.a

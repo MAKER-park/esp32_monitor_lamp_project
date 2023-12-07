@@ -1,4 +1,4 @@
-C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_client/build/esp-idf/xtensa/libxtensa.a
+C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_client/build/esp-idf/riscv/libriscv.a
 C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_client/build/esp-idf/esp_ringbuf/libesp_ringbuf.a
 C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_client/build/esp-idf/efuse/libefuse.a
 C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_client/build/esp-idf/driver/libdriver.a
@@ -57,7 +57,6 @@ C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/b
 C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_client/build/esp-idf/fatfs/libfatfs.a
 C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_client/build/esp-idf/json/libjson.a
 C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_client/build/esp-idf/mqtt/libmqtt.a
-C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_client/build/esp-idf/perfmon/libperfmon.a
 C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_client/build/esp-idf/spiffs/libspiffs.a
 C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_client/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
 C:/Users/Desktop/Documents/GitHub/esp32_monitor_lamp_project/esp32/led/ref/ble/ble_spp_client/build/esp-idf/main/libmain.a
