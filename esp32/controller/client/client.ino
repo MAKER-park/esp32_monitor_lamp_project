@@ -38,7 +38,7 @@ int16_t encoderValue = 0;
 #define ROTARY_ENCODER_B_PIN 37
 #define ROTARY_ENCODER_BUTTON_PIN 38
 #define ROTARY_ENCODER_VCC_PIN -1 /* 27 put -1 of Rotary encoder Vcc is connected directly to 3,3V; else you can use declared output pin for powering rotary encoder */
-#define ROTARY_ENCODER_STEPS 1
+#define ROTARY_ENCODER_STEPS 2
 
 // use first channel of 16 channels (started from zero)
 #define LEDC_CHANNEL_0 0
@@ -220,7 +220,7 @@ void setup() {
     });
   //optionally we can set boundaries and if values should cycle or not
   bool circleValues = false;
-  rotaryEncoder.setBoundaries(0, 1000, circleValues);  //minValue, maxValue, circleValues true|false (when max go to min and vice versa)
+  rotaryEncoder.setBoundaries(0, 500, circleValues);  //minValue, maxValue, circleValues true|false (when max go to min and vice versa)
 
   /*Rotary acceleration introduced 25.2.2021.
     * in case range to select is huge, for example - select a value between 0 and 1000 and we want 785

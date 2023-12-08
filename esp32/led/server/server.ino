@@ -41,7 +41,7 @@ class MyCallbacks : public BLECharacteristicCallbacks {
       Serial.print("Received Value: ");
       Serial.println(value);
 
-      int bright_value = map(value.toInt(),0,1000,0,255);
+      int bright_value = map(value.toInt(),0,500,0,255);
 
       Serial.print("Converted to Int: ");
       Serial.println(bright_value);
